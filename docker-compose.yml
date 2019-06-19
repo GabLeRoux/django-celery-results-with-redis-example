@@ -9,7 +9,7 @@ services:
     build:
       context: .
       dockerfile: ./compose/local/django/Dockerfile
-    image: example_local_django
+    image: example_django
     depends_on:
       - postgres
       - mailhog
@@ -43,7 +43,7 @@ services:
 
   celeryworker:
     <<: *django
-    image: example_local_celeryworker
+    image: example_django
     depends_on:
       - redis
       - postgres
@@ -53,7 +53,7 @@ services:
 
   celerybeat:
     <<: *django
-    image: example_local_celerybeat
+    image: example_django
     depends_on:
       - redis
       - postgres
